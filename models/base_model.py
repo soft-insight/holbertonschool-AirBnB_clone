@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" BaseModel: it defines all common
+""" Module name: base_model.
+    Class BaseModel - This class defines all common
     attributes/methods for other classes.
 """
 import uuid
