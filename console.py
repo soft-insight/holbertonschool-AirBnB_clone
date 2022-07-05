@@ -17,8 +17,6 @@ class AirBnB(cmd.Cmd):
     def do_EOF(self, line):
         """ close the AirBnB console """
         return True
-
-
     #     # return super().postloop()
 
     def emptyline(self):

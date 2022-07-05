@@ -46,4 +46,3 @@ class FileStorage:
                 json_string = json.load(f)
         except Exception:
             pass
-
