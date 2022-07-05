@@ -43,6 +43,11 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIsInstance(modelDict['created_at'], str)
         self.assertIsInstance(modelDict['updated_at'], str)
 
+    def test_save(self):
+        """ Test save method"""
+        model4 = BaseModel()
+        model4.save()
+        self.assertNotEqual(model4.created_at, model4.updated_at)
 
 if __name__ == "__main__":
     unittest.main()
