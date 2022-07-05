@@ -49,5 +49,6 @@ class Test_BaseModel(unittest.TestCase):
         model4.save()
         self.assertNotEqual(model4.created_at, model4.updated_at)
 
+
 if __name__ == "__main__":
     unittest.main()
