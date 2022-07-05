@@ -18,9 +18,8 @@ class AirBnB(cmd.Cmd):
         """ close the AirBnB console """
         return True
 
-    def postloop(self):
-        print()
-        # return super().postloop()
+
+    #     # return super().postloop()
 
     def emptyline(self):
         """ called when empty line is entered.

@@ -37,7 +37,7 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """ Methodreturns a dictionary
+        """ Method that returns a dictionary
             containing all keys/values of __dict__ of the instance.
         """
         base_dict = self.__dict__
