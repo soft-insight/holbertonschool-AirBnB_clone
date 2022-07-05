@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 
 
 class Test_BaseModel(unittest.TestCase):
-    """ Test of BaseModel class 
+    """ Test of BaseModel class
         Attributes:
                     - id
                     - create_at
@@ -21,5 +21,3 @@ class Test_BaseModel(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
