@@ -40,7 +40,7 @@ class BaseModel:
         """ Method that returns a dictionary
             containing all keys/values of __dict__ of the instance.
         """
-        base_dict = self.__dict__
+        base_dict = self.__dict__.copy()
         base_dict["__class__"] = self.__class__.__name__
         base_dict["created_at"] = self.created_at.isoformat()
         base_dict["updated_at"] = self.updated_at.isoformat()
