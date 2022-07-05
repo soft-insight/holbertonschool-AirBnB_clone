@@ -1,12 +1,19 @@
 #!/usr/bin/python3
 """ Unittests for BaseModel """
 import unittest
+from os import remove
 from datetime import datetime
 from models.base_model import BaseModel
 
 
 class Test_BaseModel(unittest.TestCase):
     """ Tests for BaseModel """
+    def tearDown(self):
+        """ Tear down for all methods """
+        try:
+            remove("file.json")
+        except:
+            pass
 
     def test_instance(self):
         """ Test instances created by BaseModel """
