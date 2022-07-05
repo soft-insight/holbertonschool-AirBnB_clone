@@ -34,6 +34,15 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(type(model2.created_at), datetime)
         self.assertEqual(type(model2.updated_at), datetime)
 
+    def test_to_dict(self):
+        """ Test to_dict method """
+        model3 = BaseModel()
+        modelDict = model3.to_dict()
+
+        self.assertEqual(model3.__class__.__name__, 'BaseModel')
+        self.assertIsInstance(modelDict['created_at'], str)
+        self.assertIsInstance(modelDict['updated_at'], str)
+
 
 if __name__ == "__main__":
     unittest.main()
