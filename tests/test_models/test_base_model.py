@@ -65,6 +65,12 @@ class Test_BaseModel(unittest.TestCase):
         bm = BaseModel()
         self.assertTrue(dict, type(bm.to_dict()))
 
+    def test_to_dict_datetime_attributes_are_strs(self):
+        bm = BaseModel()
+        bm_dict = bm.to_dict()
+        self.assertEqual(str, type(bm_dict["created_at"]))
+        self.assertEqual(str, type(bm_dict["updated_at"]))
+
     def test_save(self):
         """ Test save method"""
         model4 = BaseModel()
