@@ -53,13 +53,13 @@ class Test_BaseModel(unittest.TestCase):
     def test_to_dict(self):
         """ Test to_dict method """
         model3 = BaseModel()
-        modelDict = model3.to_dict()
+        mDict = model3.to_dict()
 
         self.assertEqual(model3.__class__.__name__, 'BaseModel')
-        self.assertIsInstance(modelDict['created_at'], str)
-        self.assertIsInstance(modelDict['updated_at'], str)
-        self.assertEqual(modelDict["updated_at"], model3.updated_at.isoformat())
-        self.assertEqual(modelDict["created_at"], model3.created_at.isoformat())
+        self.assertIsInstance(mDict['created_at'], str)
+        self.assertIsInstance(mDict['updated_at'], str)
+        self.assertEqual(mDict["updated_at"], model3.updated_at.isoformat())
+        self.assertEqual(mDict["created_at"], model3.created_at.isoformat())
 
     def test_to_dict2(self):
         """ test correct type """

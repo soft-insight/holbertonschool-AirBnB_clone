@@ -5,7 +5,7 @@
 import cmd
 
 
-class AirBnB(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ Command line interface for AirBnB project """
 
     prompt = '(hbnb) '
