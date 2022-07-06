@@ -2,19 +2,19 @@
 """ Unittests for BaseModel """
 import unittest
 import pep8
-from os import remove
+import os
 from datetime import datetime
 from models.base_model import BaseModel
 
 
 class Test_BaseModel(unittest.TestCase):
     """ Tests for BaseModel """
-    # def tearDown(self):
-    #     """ Tear down for all methods """
-    #     try:
-    #         remove("file.json")
-    #     except Exception:
-    #         pass
+    def tearDown(self):
+        """ Tear down for all methods """
+        try:
+            os.remove("file.json")
+        except IOError:
+            pass
 
     def test_instance(self):
         """ Test instances created by BaseModel """
@@ -59,6 +59,11 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIsInstance(modelDict['updated_at'], str)
         self.assertEqual(modelDict["updated_at"], model3.updated_at.isoformat())
         self.assertEqual(modelDict["created_at"], model3.created_at.isoformat())
+
+    def test_to_dict2(self):
+        """ test correct type """
+        bm = BaseModel()
+        self.assertTrue(dict, type(bm.to_dict()))
 
     def test_save(self):
         """ Test save method"""
