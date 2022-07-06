@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 # AirBnB console
-
-
 import cmd
 
 
@@ -11,13 +9,13 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_quit(self, line):
-        """ method to exit from the console """
-        exit()
+        """Quit command to exit the program """
+        return True
 
     def do_EOF(self, line):
-        """ close the AirBnB console """
+        """Quit command to exit the program """
+        print()
         return True
-    #     # return super().postloop()
 
     def emptyline(self):
         """ called when empty line is entered.
