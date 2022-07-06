@@ -46,7 +46,7 @@ class Test_BaseModel(unittest.TestCase):
         """ Test if we sent argument to init """
         with self.assertRaises(TypeError) as e:
             BaseModel.__init__()
-        self.assertEqual("""__init__() missing 1 required"""+
+        self.assertEqual("""__init__() missing 1 required""" +
                          """ positional argument: 'self'""", str(e.exception))
 
     def test_to_dict(self):
