@@ -5,6 +5,7 @@ import pep8
 import os
 from datetime import datetime
 from models.base_model import BaseModel
+from time import sleep
 
 
 class Test_BaseModel(unittest.TestCase):
@@ -98,6 +99,22 @@ class Test_BaseModel(unittest.TestCase):
         model4 = BaseModel()
         model4.save()
         self.assertNotEqual(model4.created_at, model4.updated_at)
+
+    def test_two_saves(self):
+        bm = BaseModel()
+        sleep(0.05)
+        first_updated_at = bm.updated_at
+        bm.save()
+        second_updated_at = bm.updated_at
+        self.assertLess(first_updated_at, second_updated_at)
+        sleep(0.05)
+        bm.save()
+        self.assertLess(second_updated_at, bm.updated_at)
+
+    def test_save_with_arg(self):
+        bm = BaseModel()
+        with self.assertRaises(TypeError):
+            bm.save(None)
 
     def test_kwargs(self):
         """ Test kwargs as dict"""
