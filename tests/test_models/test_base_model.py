@@ -9,12 +9,12 @@ from models.base_model import BaseModel
 
 class Test_BaseModel(unittest.TestCase):
     """ Tests for BaseModel """
-    def tearDown(self):
-        """ Tear down for all methods """
-        try:
-            remove("file.json")
-        except Exception:
-            pass
+    # def tearDown(self):
+    #     """ Tear down for all methods """
+    #     try:
+    #         remove("file.json")
+    #     except Exception:
+    #         pass
 
     def test_instance(self):
         """ Test instances created by BaseModel """
@@ -41,6 +41,13 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(type(model2.id), str)
         self.assertEqual(type(model2.created_at), datetime)
         self.assertEqual(type(model2.updated_at), datetime)
+
+    def test_no_send_argument(self):
+        """ Test if we sent argument to init """
+        with self.assertRaises(TypeError) as e:
+            BaseModel.__init__()
+        self.assertEqual("""__init__() missing 1 required"""+
+                         """ positional argument: 'self'""", str(e.exception))
 
     def test_to_dict(self):
         """ Test to_dict method """
