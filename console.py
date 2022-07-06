@@ -14,7 +14,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """Quit command to exit the program """
-        print()
         return True
 
     def emptyline(self):
@@ -23,6 +22,10 @@ class HBNBCommand(cmd.Cmd):
             it repeats the last nonempty command entered.
         """
         pass
+
+    def postloop(self):
+        """ postloop """
+        return super().postloop()
 
 
 if __name__ == '__main__':
