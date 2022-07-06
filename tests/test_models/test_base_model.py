@@ -57,6 +57,15 @@ class Test_BaseModel(unittest.TestCase):
         model4.save()
         self.assertNotEqual(model4.created_at, model4.updated_at)
 
+    def test_kwargs(self):
+        """ Test kwargs as dict"""
+        dt = datetime.today()
+        dt_iso = dt.isoformat()
+        bm = BaseModel("12", id="345", created_at=dt_iso, updated_at=dt_iso)
+        self.assertEqual(bm.id, "345")
+        self.assertEqual(bm.created_at, dt)
+        self.assertEqual(bm.updated_at, dt)
+
     def test_pep8(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
