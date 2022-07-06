@@ -4,6 +4,7 @@
     attributes/methods for other classes.
 """
 import uuid
+import models
 from datetime import datetime
 
 
@@ -37,6 +38,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """ Method that represents the class as string """
@@ -45,6 +47,7 @@ class BaseModel:
     def save(self):
         """ Method that saves the updates """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """ Method that returns a dictionary
