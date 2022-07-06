@@ -57,6 +57,8 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(model3.__class__.__name__, 'BaseModel')
         self.assertIsInstance(modelDict['created_at'], str)
         self.assertIsInstance(modelDict['updated_at'], str)
+        self.assertEqual(modelDict["updated_at"], model3.updated_at.isoformat())
+        self.assertEqual(modelDict["created_at"], model3.created_at.isoformat())
 
     def test_save(self):
         """ Test save method"""
