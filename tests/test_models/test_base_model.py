@@ -75,6 +75,10 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(bm.created_at, dt)
         self.assertEqual(bm.updated_at, dt)
 
+    def test_No_kwargs(self):
+        with self.assertRaises(TypeError):
+            BaseModel(id=None, created_at=None, updated_at=None)
+
     def test_pep8(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
