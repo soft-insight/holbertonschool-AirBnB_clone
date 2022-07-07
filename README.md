@@ -2,7 +2,7 @@
 
 ![HBnB Logo](images/hbnb.png =100x20)
 ![Holberton Logo](images/holberton.png "Holberton School")
-___
+
 
 ## The Proyect
 This is the first step towards building a full web application. And the first steps of this first step are:
@@ -22,8 +22,6 @@ The project is going to be managed from the command line and we are going to be 
 
 ![The cmd](images/cmd.png)
 
-___
-
 ## Commands
 The console has been created for specific use-case: The AirBnB clone. The commands are shown in the next table:
 
@@ -36,12 +34,10 @@ The console has been created for specific use-case: The AirBnB clone. The comman
 | update	|updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).|	`(hbnb) update <class_name> <class_id> <attribute> <new_value>`
 |quit and EOF	|exit the program|	`(hbnh) quit`|
 |help	|displays the documented commands.|	`(hbnh) help`|
-____
 
 ## Testing
 The test files are located in the /tests directory, to run it you can use the command `python3 -m unittest discover tests`
 
-____
 ## Author
 Jaime Rodriguez G. [github](https://github.com/soft-insight), [twitter](https://twitter.com/jaimerodg)
 
