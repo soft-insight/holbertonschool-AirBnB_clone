@@ -1,6 +1,5 @@
 # AirBnB Clone - The console
 
-![HBnB Logo](images/hbnb.png)
 ![Holberton Logo](images/holberton.png "Holberton School")
 
 
