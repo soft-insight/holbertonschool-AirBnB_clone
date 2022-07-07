@@ -47,35 +47,33 @@ class HBNBCommand(cmd.Cmd):
         """
         args = line.split()
         objs = storage.all()
-        key = args[0] + '.' + args[1]
         if len(args) == 0:
             print("** class name missing **")
         elif len(args) == 1:
             print("** instance id missing **")
         elif args[0] not in classes:
             print("** class doesn't exist **")
-        elif key not in objs:
+        elif f"{args[0] + '.' + args[1]}" not in objs:
             print("** no instance found **")
         else:
-            print(objs[key])
+            print(objs[f"{args[0] + '.' + args[1]}" ])
 
-    def destroy(self, line):
+    def do_destroy(self, line):
         """ Deletes an instance based on the class name and id
             (save the change into the JSON file).
         """
         args = line.split()
         objs = storage.all()
-        key = args[0] + '.' + args[1]
         if len(args) == 0:
             print("** class name missing **")
         elif len(args) == 1:
             print("** instance id missing **")
         elif args[0] not in classes:
             print("** class doesn't exist **")
-        elif key not in objs:
+        elif f"{args[0]}.{args[1]}" not in objs:
             print("** no instance found **")
         else:
-            del objs[key]
+            del objs[f"{args[0]}.{args[1]}"]
             storage.save()
 
     def do_all(self, line):
@@ -99,6 +97,48 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_update(self, line):
+        """ Updates an instance based on the class
+            name and id by adding or updating attribute
+            (save the change into the JSON file).
+        """
+        args = line.split()
+        objs = storage.all()
+        key = args[0] + '.' + args[1]
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif key not in objs.keys():
+            print("** no instance found **")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif len(args) == 3:
+            try:
+                type(eval(args[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+
+        if len(args) == 4:
+            obj = objs[key]
+            if args[2] in obj.__class__.__dict__.keys():
+                valtype = type(obj.__class__.__dict__[args[2]])
+                obj.__dict__[args[2]] = valtype(args[3])
+            else:
+                obj.__dict__[args[2]] = args[3]
+        elif type(eval(args[2])) == dict:
+            obj = objs[key]
+            for k, v in eval(args[2]).items():
+                if (k in obj.__class__.__dict__.keys() and
+                        type(obj.__class__.__dict__[k]) in {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[k])
+                    obj.__dict__[k] = valtype(v)
+                else:
+                    obj.__dict__[k] = v
+        storage.save()
 
 
 if __name__ == '__main__':
