@@ -56,7 +56,6 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue('longitude' in self.place.__dict__)
         self.assertTrue('amenity_ids' in self.place.__dict__)
 
-
     def test_is_subclass_Place(self):
         """ if Place is subclass of Basemodel"""
         self.assertTrue(issubclass(self.place.__class__, BaseModel), True)

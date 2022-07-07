@@ -46,5 +46,6 @@ class TestStringMethods(unittest.TestCase):
         """at the end of the test this will tear it down"""
         del cls.city
 
+
 if __name__ == '__main__':
     unittest.main()

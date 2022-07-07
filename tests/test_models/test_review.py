@@ -36,7 +36,6 @@ class TestStringMethods(unittest.TestCase):
         """test if review is subclass of BaseModel"""
         self.assertTrue(issubclass(self.rev.__class__, BaseModel), True)
 
-
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
@@ -49,6 +48,6 @@ class TestStringMethods(unittest.TestCase):
         """at the end of the test this will tear it down"""
         del cls.rev
 
+
 if __name__ == '__main__':
     unittest.main()
-

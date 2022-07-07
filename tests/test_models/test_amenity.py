@@ -38,10 +38,12 @@ class TestStringMethods(unittest.TestCase):
         result = pep8style.check_files(['models/amenity.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
+
     @classmethod
     def teardown(cls):
         """at the end of the test this will tear it down"""
         del cls.amenity
+
 
 if __name__ == '__main__':
     unittest.main()
