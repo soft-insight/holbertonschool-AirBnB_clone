@@ -39,5 +39,3 @@ The test files are located in the /tests directory, to run it you can use the co
 
 ## Author
 Jaime Rodriguez G. [github](https://github.com/soft-insight), [twitter](https://twitter.com/jaimerodg)
-
-
